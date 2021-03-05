@@ -1,0 +1,55 @@
+<header class="fixed-top">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/alunos"></a>
+      <div class="collapse navbar-collapse menu-superior" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" routerLink="/aluno-novo">Cadastrar Aluno</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</header>
+
+<footer class="fixed-bottom">
+  <div class="container-fluid"></div>
+</footer>
+
+<div class="modal mt-5" id="welcomeModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sistema Gerenciador de Alunos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <p>
+          <b>Seja bem-vindo ao SGA!</b>
+        </p>
+        <p>
+          Aqui você gerencia todo o processo de cadastro, listagem, edição e exclusão de alunos.<br>
+          Para mais informações contate-nos!
+        </p>
+
+        <p>
+          <b>Notas:</b>
+        </p>
+
+        <ul>
+          <li>A base de dados utilizada nessa aplicação encontra-se na pasta <code>util/db.sql</code></li>
+          <li>A ferramenta <code>xampp</code> foi utilizada como servidor para a base de dados</li>
+          <li>Após a configuração da mesma, rode o comando <code>node server.js</code> para se conectar ao mysql</li>
+          <li>Para iniciar a aplicação rode o comando <code>ng serve --open</code></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

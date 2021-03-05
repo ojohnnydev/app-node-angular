@@ -1,0 +1,79 @@
+<section class="conteudo">
+  <div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col-md-8 offset-2">
+        <fieldset>
+
+          <legend>Cadastrar Aluno</legend><hr>
+
+          <form class="mt-5" #f="ngForm" (ngSubmit)="f.form.valid && saveAluno(f)" novalidate>
+
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="NOME">Nome</label>
+                <input type="text" ngModel="" id="NOME" name="NOME" class="form-control" #NOME="ngModel"
+                       required [ngClass]="{'is-invalid': f.submitted && NOME.invalid}" maxlength="100">
+                <div *ngIf="f.submitted && NOME.invalid" class="invalid-feedback">
+                  <div *ngIf="NOME.errors.required">Nome é obrigatório!</div>
+                  <div *ngIf="NOME.errors.maxlength">Tamanho de caracteres excedido!</div>
+                </div>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="CPF">CPF</label>
+                <input type="text" ngModel="" id="CPF" name="CPF" class="form-control cpf" #CPF="ngModel"
+                       required [ngClass]="{'is-invalid': f.submitted && CPF.invalid}">
+                <div *ngIf="f.submitted && CPF.invalid" class="invalid-feedback">
+                  <div *ngIf="CPF.errors.required">CPF é obrigatório!</div>
+                </div>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="DATA_NASCIMENTO">Data de Nascimento</label>
+                <input type="text" ngModel="" id="DATA_NASCIMENTO" name="DATA_NASCIMENTO" class="form-control data" #DATA_NASCIMENTO="ngModel"
+                       required (blur)="verificaMaiorIdade($event.target.value)" [ngClass]="{'is-invalid': f.submitted && DATA_NASCIMENTO.invalid}">
+                <div *ngIf="f.submitted && DATA_NASCIMENTO.invalid" class="invalid-feedback">
+                  <div *ngIf="DATA_NASCIMENTO.errors.required">Data de Nascimento é obrigatória!</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="EMAIL">E-mail</label>
+                <input type="email" ngModel="" id="EMAIL" name="EMAIL" class="form-control"
+                       #EMAIL="ngModel" email="true" [ngClass]="{'is-invalid': f.submitted && EMAIL.invalid}">
+                <div *ngIf="f.submitted && EMAIL.invalid" class="invalid-feedback">
+                  <div *ngIf="EMAIL.errors.email">Formato e-mail inválido!</div>
+                </div>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="SEXO">Sexo</label>
+                <input type="text" ngModel="" id="SEXO" name="SEXO" class="form-control" #SEXO="ngModel"
+                       required maxlength="9" [ngClass]="{'is-invalid': f.submitted && SEXO.invalid}">
+                <div *ngIf="f.submitted && SEXO.invalid" class="invalid-feedback">
+                  <div *ngIf="SEXO.errors.required">Sexo é obrigatório!</div>
+                  <div *ngIf="SEXO.errors.maxlength">Tamanho de caracteres excedido!</div>
+                </div>
+                <small id="SEXOHelp" class="form-text text-muted">Masculino/Feminino</small>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="MAIOR_IDADE">Maior de Idade</label>
+                <input type="text" ngModel="{{capitalizeFirstLetter(aluno.MAIOR_IDADE)}}" id="MAIOR_IDADE" name="MAIOR_IDADE" class="form-control" #MAIOR_IDADE="ngModel"
+                       required [ngClass]="{'is-invalid': f.submitted && MAIOR_IDADE.invalid}" disabled>
+                <small id="MAIOR_IDADEHelp" class="form-text text-muted">Valor disponibilizado de acordo com a data de nascimento</small>
+              </div>
+            </div>
+
+            <div class="form-row mt-5">
+              <div class="form-group col-md-6">
+                <button type="button" class="btn btn-primary" routerLink="/alunos">Cancelar</button>
+              </div>
+              <div class="form-group col-md-6 text-right">
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+              </div>
+            </div>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</section>

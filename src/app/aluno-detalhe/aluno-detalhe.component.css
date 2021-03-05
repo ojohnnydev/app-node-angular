@@ -1,0 +1,39 @@
+input {
+  outline: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.mw-20 {
+  max-width: 20% !important;
+}
+
+.mw-18 {
+  max-width: 18% !important;
+}
+
+.mw-17 {
+  max-width: 17% !important;
+}
+
+.mw-15 {
+  max-width: 15% !important;
+}
+
+.mw-12 {
+  max-width: 12% !important;
+}
+
+.mw-13 {
+  max-width: 13% !important;
+}
+
+.mw-5 {
+  max-width: 5% !important;
+}
+
+.mw-6 {
+  max-width: 6% !important;
+}

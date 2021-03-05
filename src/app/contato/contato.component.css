@@ -1,0 +1,32 @@
+a {
+  color: #202020;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contato-item div {
+  display: inline-flex;
+}
+
+.contato-item div:first-child {
+  margin: 1.6rem 3.2rem 1.6rem 0;
+  padding: 1.6rem 3.2rem 1.6rem 1.6rem;
+  border-right: 1px solid #202020;
+}
+
+.contato-item div:first-child i {
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid #202020;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.contato-item div:last-child {
+  margin: 1.6rem 3.2rem 1.6rem 0;
+  padding: 1.6rem 3.2rem 1.6rem 0;
+}

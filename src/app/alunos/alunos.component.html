@@ -1,0 +1,65 @@
+<section class="conteudo">
+  <div class="container-fluid">
+    <div class="row">
+
+      <!--Feedback de ações-->
+      <div class="alert alert-info alert-dismissible fade show col-md-4 offset-4 text-center mb-4" role="alert" *ngIf="mensagem && mensagem === 'alunoEditado'">
+        Aluno editado com sucesso!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="alert alert-success alert-dismissible fade show col-md-4 offset-4 text-center mb-4" role="alert" *ngIf="mensagem && mensagem === 'alunoCadastrado'">
+        Aluno cadastrado com sucesso!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="alert alert-warning alert-dismissible fade show col-md-4 offset-4 text-center mb-4" role="alert" *ngIf="mensagem && mensagem === 'alunoJaCadastrado'">
+        Aluno já cadastrado no sistema!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="alert alert-danger alert-dismissible fade show col-md-4 offset-4 text-center mb-4" role="alert" *ngIf="mensagem && mensagem === 'alunoExcluido'">
+        Aluno excluido com sucesso!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let aluno of alunos">
+            <th scope="row">{{aluno.ID}}</th>
+            <td>{{aluno.NOME}}</td>
+            <td class="cpf">{{aluno.CPF}}</td>
+            <td>{{aluno.DATA_NASCIMENTO | date:'dd/MM/yyyy'}}</td>
+            <td>{{aluno.EMAIL}}</td>
+            <td>
+              <span class="links mr-1" title="Detalhe" routerLink="/aluno-detalhe/{{aluno.ID}}"><i class="fas fa-info"></i></span>
+              <span class="links ml-1" title="Editar" routerLink="/aluno-editar/{{aluno.ID}}"><i class="fas fa-edit"></i></span>
+              <span class="links ml-1" title="Deletar" (click)="deleteAluno(aluno)"><i class="fas fa-trash-alt"></i></span>
+            </td>
+          </tr>
+          <tr *ngIf="!alunos">
+            <th scope="row" colspan="7" id="aviso">Nenhum aluno cadastrado!</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

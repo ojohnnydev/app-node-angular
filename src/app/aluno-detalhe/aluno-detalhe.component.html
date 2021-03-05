@@ -1,0 +1,73 @@
+<section class="conteudo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 offset-2">
+        <fieldset>
+
+          <legend>Detalhes Aluno</legend><hr>
+
+          <form>
+            <div class="form-group row">
+              <label class="col-sm-1 col-form-label bold mw-6">Nome:</label>
+              <div class="col-sm-3">
+                <input type="text" readonly class="form-control-plaintext" ngModel="{{aluno.NOME}}" name="NOME">
+              </div>
+
+              <label class="col-sm-1 col-form-label bold mw-5">CPF:</label>
+              <div class="col-sm-2">
+                <input type="text" readonly class="form-control-plaintext cpf" ngModel="{{aluno.CPF}}" name="CPF">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label bold mw-18">Data de Nascimento:</label>
+              <div class="col-sm-2">
+                <input type="text" readonly class="form-control-plaintext" ngModel="{{aluno.DATA_NASCIMENTO | date: 'dd/MM/yyyy'}}" name="DATA_NASCIMENTO">
+              </div>
+
+              <label class="col-sm-1 col-form-label bold mw-5">Email:</label>
+              <div class="col-sm-4">
+                <input type="email" class="form-control-plaintext" ngModel="{{aluno.EMAIL}}" name="EMAIL">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-1 col-form-label bold mw-5">Sexo:</label>
+              <div class="col-sm-2">
+                <input type="text" readonly class="form-control-plaintext" ngModel="{{exibeGenero(aluno.SEXO)}}" name="SEXO">
+              </div>
+
+              <label class="col-sm-3 col-form-label bold mw-15">Maior de Idade:</label>
+              <div class="col-sm-2">
+                <input type="text" readonly class="form-control-plaintext" ngModel="{{capitalizeFirstLetter(aluno.MAIOR_IDADE)}}" name="MAIOR_IDADE">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label bold mw-15">Data de Criação:</label>
+              <div class="col-sm-3">
+                <input type="text" readonly class="form-control-plaintext" ngModel="{{capitalizeFirstLetter(aluno.DATA_CRIACAO | date: 'dd/MM/yyyy h:mm:ss a')}}" name="DATA_CRIACAO">
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="aluno.DATA_ALTERACAO">
+              <label class="col-sm-3 col-form-label bold mw-17">Data de Alteração:</label>
+              <div class="col-sm-3">
+                <input type="text" readonly class="form-control-plaintext" ngModel="{{capitalizeFirstLetter(aluno.DATA_ALTERACAO | date: 'dd/MM/yyyy h:mm:ss a')}}" name="DATA_ALTERACAO">
+              </div>
+            </div>
+
+            <div class="form-group row mt-5">
+              <div class="col-md-6">
+                <button type="button" class="btn btn-primary" routerLink="/alunos">Voltar</button>
+              </div>
+              <div class="col-md-6 text-right">
+                <button type="button" class="btn btn-success" routerLink="/aluno-editar/{{aluno.ID}}">Editar</button>
+              </div>
+            </div>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</section>
